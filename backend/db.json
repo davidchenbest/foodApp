@@ -1,0 +1,11 @@
+{
+    "users":[
+        {"id":1,"username":"david","password":"hey"}
+    ],
+    
+        "foods":[
+            {"id":1,"name":"apple"}
+        ]
+
+    
+}
