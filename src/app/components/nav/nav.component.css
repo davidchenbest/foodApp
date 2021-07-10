@@ -1,3 +1,21 @@
-.nav--active{
-    background-color: green;
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+}
+
+.nav--active {
+  background-color: lightgray;
+}
+
+.nav__link {
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.nav__link:hover {
+  background-color: lightgray;
 }
