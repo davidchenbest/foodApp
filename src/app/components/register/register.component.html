@@ -1,1 +1,22 @@
-<p>register works!</p>
+<form [formGroup]='newUserForm' (ngSubmit)='newUserForm.valid && onSubmit()'>
+
+    <input type="text" name="username" placeholder="username" formControlName='username'>
+    <div *ngIf='fc.username.touched'>
+        <span *ngIf='fc.username.errors?.required'>required</span>
+    </div>
+
+    <input type="password" name="password" placeholder="password" formControlName='password'>
+    <div *ngIf='fc.password.touched'>
+        <span *ngIf='fc.password.errors?.required'>required</span>
+        <span *ngIf='fc.password.errors?.minlength'>min length 6</span>
+    </div>
+
+    <input type="password" name="confirmPassword" placeholder="confirmPassword" formControlName='confirmPassword'>
+    <div *ngIf='fc.confirmPassword.touched'>
+        <span *ngIf='fc.confirmPassword.errors?.required'>required</span>
+        <span *ngIf='fc.confirmPassword.errors?.minlength'>min length 6</span>
+        <span *ngIf='fc.confirmPassword.errors?.PasswordMatch'>password do not match</span>
+    </div>
+
+    <input type="submit" [disabled]='newUserForm.invalid'>
+</form>

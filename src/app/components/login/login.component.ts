@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { User } from '../interfaces/User';
 
@@ -8,15 +9,21 @@ import { User } from '../interfaces/User';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  user: User = { username: '', password: '' };
-  message!: string;
+  loginForm: FormGroup = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', [Validators.required]),
+  });
+
   constructor(private authService: AuthGuardService) {}
 
   ngOnInit(): void {}
 
+  get fc() {
+    return this.loginForm.controls;
+  }
+
   onSubmit(): any {
-    const { username, password } = this.user;
-    if (!username || !password) return (this.message = 'Incomplete');
-    this.authService.login(this.user);
+    const { username, password } = this.loginForm.value;
+    this.authService.login(this.loginForm.value);
   }
 }

@@ -3,10 +3,9 @@
 
         <a routerLink="/home" routerLinkActive="nav--active">Home</a>
     </div>
-    <a routerLink="/register" routerLinkActive="nav--active">Register</a>
     <a *ngIf='loggedIn; else logIn' (click)='logout()'>Logout</a>
     <ng-template #logIn>
-
+        <a routerLink="/register" routerLinkActive="nav--active">Register</a>
         <a routerLink="/login" routerLinkActive="nav--active">Login</a>
     </ng-template>
 </nav>

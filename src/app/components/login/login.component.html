@@ -1,8 +1,7 @@
-<form action="" (submit)='onSubmit()'>
-    <input type="text" name='username' placeholder="username" [(ngModel)]='user.username'>
-    <input type="password" name='password' placeholder="password" [(ngModel)]='user.password' >
-    <div *ngIf='message'>
-        {{message}}
-    </div>
-    <input type="submit">
+<form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit()">
+    <input type="text" name="username" placeholder="username" formControlName="username" />
+
+    <input type="password" name="password" placeholder="password" formControlName="password" />
+
+    <input type="submit" [disabled]="loginForm.invalid" />
 </form>
