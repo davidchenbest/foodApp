@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
+import { UserService } from 'src/app/services/user.service';
 import { PasswordMatch } from 'src/app/validators/passwordMatch';
 
 @Component({
@@ -23,7 +25,10 @@ export class RegisterComponent implements OnInit {
     { validators: PasswordMatch.MatchPassword }
   );
 
-  constructor() {}
+  constructor(
+    private userService: UserService,
+    private authService: AuthGuardService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -32,6 +37,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.newUserForm.value);
+    this.userService.registerUser(this.newUserForm.value).subscribe((data) => {
+      if (!data) return alert('there was an error registering');
+      this.authService.login(data);
+    });
   }
 }

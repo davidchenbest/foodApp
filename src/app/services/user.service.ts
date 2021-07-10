@@ -12,4 +12,8 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>('http://localhost:3000/users');
   }
+
+  registerUser(user: User): Observable<User> {
+    return this.httpClient.post<User>('http://localhost:3000/users', user);
+  }
 }
