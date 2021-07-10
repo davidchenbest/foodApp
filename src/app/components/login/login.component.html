@@ -1,4 +1,8 @@
-<form action="">
-    <input type="text" name='username'>
+<form action="" (submit)='onSubmit()'>
+    <input type="text" name='username' placeholder="username" [(ngModel)]='user.username'>
+    <input type="password" name='password' placeholder="password" [(ngModel)]='user.password' >
+    <div *ngIf='message'>
+        {{message}}
+    </div>
     <input type="submit">
 </form>

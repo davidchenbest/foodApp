@@ -8,19 +8,27 @@ import { NavComponent } from './components/nav/nav.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AuthGuardService } from './services/auth-guard.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthGuardService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
