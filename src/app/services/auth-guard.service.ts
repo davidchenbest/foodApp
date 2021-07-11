@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -7,17 +6,19 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Subject } from 'rxjs';
+// http://www.shrestharohit.com.np/subject-behavioursubject-rxjs-angular/
+import { BehaviorSubject } from 'rxjs';
 import { User } from '../components/interfaces/User';
 import { UserService } from './user.service';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
   loggedIn: boolean = false;
-  loggedInSubject = new Subject<any>();
+  loggedInSubject = new BehaviorSubject<Boolean>(false);
 
   constructor(private _router: Router, private userService: UserService) {
     this.loggedIn = localStorage.getItem('isLoggedIn') == 'true' ? true : false;
+    this.loggedInSubject.next(this.loggedIn);
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
@@ -45,7 +46,7 @@ export class AuthGuardService implements CanActivate {
   logout() {
     this.loggedIn = false;
     this.loggedInSubject.next(this.loggedIn);
-    localStorage.setItem('isLoggedIn', 'false');
+    localStorage.removeItem('isLoggedIn');
     this._router.navigate(['/login']);
   }
 }
