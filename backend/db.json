@@ -1,13 +1,69 @@
 {
-    "users":[
-        {"id":1,"username":"david","password":"hey"}
-    ],
-    
-        "foods":[
-            {"id":1,"name":"apple","description":"this is an amazing apple","price":9},
-            {"id":2,"name":"pear","description":"this is an amazing pear","price":2}
-
+  "users": [
+    {
+      "id": 1,
+      "username": "david",
+      "password": "hey",
+      "setting": {
+        "addresses": [
+          {
+            "name": "david",
+            "address": "address"
+          },
+          {
+            "name": "a",
+            "address": "a"
+          },
+          {
+            "name": "b",
+            "address": "b"
+          },
+          {
+            "name": "c",
+            "address": "c"
+          }
+        ],
+        "address": [
+          {
+            "name": "david",
+            "address": "address"
+          },
+          {
+            "name": "d",
+            "address": "d"
+          },
+          {
+            "name": "a",
+            "address": "a"
+          },
+          {
+            "name": "b",
+            "address": "b"
+          },
+          {
+            "name": "e",
+            "address": "e"
+          },
+          {
+            "name": "z",
+            "address": "z"
+          }
         ]
-
-    
+      }
+    }
+  ],
+  "foods": [
+    {
+      "id": 1,
+      "name": "apple",
+      "description": "this is an amazing apple",
+      "price": 9
+    },
+    {
+      "id": 2,
+      "name": "pear",
+      "description": "this is an amazing pear",
+      "price": 2
+    }
+  ]
 }

@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthGuardService } from './services/auth-guard.service';
+import { SettingComponent } from './components/setting/setting.component';
+import { AddressesComponent } from './components/addresses/addresses.component';
+import { AddAddressComponent } from './components/add-address/add-address.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { AuthGuardService } from './services/auth-guard.service';
     NavComponent,
     RegisterComponent,
     HomeComponent,
+    SettingComponent,
+    AddressesComponent,
+    AddAddressComponent,
   ],
   imports: [
     BrowserModule,

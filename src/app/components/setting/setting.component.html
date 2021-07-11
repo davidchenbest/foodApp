@@ -1,0 +1,6 @@
+<div>
+    <h1>Welcome {{username |titlecase}}</h1>
+    <p>id: {{id}}</p>
+    <button (click)='toggleAddress()' class="btn btn-primary">Address List</button>
+    <app-addresses [show]='showAddresses' [id]='id'></app-addresses>
+</div>

@@ -17,7 +17,7 @@ export class AuthGuardService implements CanActivate {
   loggedInSubject = new BehaviorSubject<Boolean>(false);
 
   constructor(private _router: Router, private userService: UserService) {
-    this.loggedIn = localStorage.getItem('isLoggedIn') == 'true' ? true : false;
+    this.loggedIn = localStorage.getItem('isLoggedIn') ? true : false;
     this.loggedInSubject.next(this.loggedIn);
   }
 
@@ -35,7 +35,7 @@ export class AuthGuardService implements CanActivate {
       if (resultUser) {
         this.loggedIn = true;
         this.loggedInSubject.next(this.loggedIn);
-        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('isLoggedIn', JSON.stringify(resultUser));
         this._router.navigate(['/home']);
       } else {
         alert('Login Failed. Try Again');
@@ -48,5 +48,11 @@ export class AuthGuardService implements CanActivate {
     this.loggedInSubject.next(this.loggedIn);
     localStorage.removeItem('isLoggedIn');
     this._router.navigate(['/login']);
+  }
+
+  getLogginUser(): any {
+    const user = localStorage.getItem('isLoggedIn');
+    if (!user) return false;
+    return JSON.parse(user);
   }
 }

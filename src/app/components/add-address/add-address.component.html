@@ -1,0 +1,19 @@
+<form [formGroup]='newAddressForm' *ngIf='show' (submit)="newAddressForm.valid && onSubmit()">
+    <h1>New Address</h1>
+    <div class="mb-3">
+        <input type="text" name="name" placeholder="name" formControlName='name'
+            [ngClass]="{'form--errors':fc.name.touched && fc.name.errors}" class="form-control">
+        <div *ngIf='fc.name.touched' class="form__errors">
+            <span *ngIf='fc.name.errors?.required'>required</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <input type="text" name="address" placeholder="address" formControlName='address'
+            [ngClass]="{'form--errors':fc.address.touched && fc.address.errors}" class="form-control">
+        <div *ngIf='fc.address.touched' class="form__errors">
+            <span *ngIf='fc.address.errors?.required'>required</span>
+        </div>
+    </div>
+    <input type="submit" [disabled]='newAddressForm.invalid' class="form__submit">
+
+</form>
