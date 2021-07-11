@@ -8,6 +8,11 @@ import { AuthGuardService } from './services/auth-guard.service';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
+  {
+    path: 'home/:searchParam',
+    component: HomeComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 ];
