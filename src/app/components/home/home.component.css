@@ -1,0 +1,41 @@
+/* SEARCH FORM */
+form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.form--errors {
+  border: 1px solid red;
+}
+
+.form__errors {
+  color: red;
+}
+
+.form__submit {
+}
+
+.form__seachAndSubmit {
+  display: flex;
+  margin-bottom: 0;
+}
+
+/*  */
+.foods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  border-radius: 5px;
+}
+
+.foods__food {
+  background-color: lightgray;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+}
+
+.food__name {
+  font-weight: bold;
+  font-size: larger;
+}

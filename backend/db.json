@@ -4,7 +4,9 @@
     ],
     
         "foods":[
-            {"id":1,"name":"apple"}
+            {"id":1,"name":"apple","description":"this is an amazing apple","price":9},
+            {"id":2,"name":"pear","description":"this is an amazing pear","price":2}
+
         ]
 
     
