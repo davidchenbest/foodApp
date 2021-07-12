@@ -23,3 +23,7 @@
   border: 1px solid lightgray;
   border-radius: 5px;
 }
+
+.total__checkout {
+  display: block;
+}

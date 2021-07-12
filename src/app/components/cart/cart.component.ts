@@ -13,18 +13,11 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    const cart = this.cartService.itemsSubject.subscribe((items) => {
+    this.cartService.itemsSubject.subscribe((items) => {
       this.items = items;
-      this.total = this.calculateTotal(this.items);
     });
-  }
 
-  calculateTotal(items: Food[]) {
-    let total = 0;
-    items.forEach((item: Food) => {
-      total += item.qty * item.price;
-    });
-    return total;
+    this.cartService.totalSubject.subscribe((total) => (this.total = total));
   }
 
   remove(index: number) {
