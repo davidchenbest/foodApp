@@ -1,7 +1,7 @@
 <div *ngIf='show' class="addressCon">
     <h1>Address List <button class="btn btn-light" (click)='toggleAddAddress()'><i class="bi bi-plus"></i></button></h1>
     <app-add-address [show]='showAddAddress' (addAddress)='addAddress($event)'></app-add-address>
-    <div class="addresses">
+    <div class="addresses" *ngIf='addresses.length; else noAddresses'>
         <div *ngFor='let address of addresses; let index = index;' class="addresses__address">
             <p>Name: {{address.name}}</p>
             <p>Address: {{address.address}}</p>
@@ -9,3 +9,7 @@
         </div>
     </div>
 </div>
+
+<ng-template #noAddresses>
+    <p>no Address</p>
+</ng-template>

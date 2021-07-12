@@ -39,3 +39,10 @@ form {
   font-weight: bold;
   font-size: larger;
 }
+.foods__qtyCon {
+  display: flex;
+  justify-content: space-between;
+}
+
+.foods__qty {
+}

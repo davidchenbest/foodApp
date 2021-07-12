@@ -3,4 +3,6 @@ export interface Food {
   name: string;
   description: string;
   price: number;
+  inCart: boolean;
+  qty: number;
 }

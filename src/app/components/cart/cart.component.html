@@ -1,0 +1,14 @@
+<h1>Cart</h1>
+<div *ngIf='items.length; else noItems' class="items">
+    <div *ngFor='let item of items; let index=index' class="items__item">
+        <p class="item__name">{{item.name | titlecase}}</p>
+        <p>{{item.description}}</p>
+        <p>{{item.price | currency}}</p>
+        <p>QTY: {{item.qty}}</p>
+        <button class="btn btn-light" (click)='remove(index)'>X</button>
+    </div>
+</div>
+
+<ng-template #noItems>
+    <h3>no items in cart</h3>
+</ng-template>

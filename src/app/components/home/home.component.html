@@ -1,3 +1,4 @@
+<h1>Foods</h1>
 <form [formGroup]='searchForm' (submit)='searchForm.valid && onSubmit()'>
     <div class="mb-3">
         <p class="form__seachAndSubmit">
@@ -12,10 +13,21 @@
             class="bi bi-x"></i></button>
 </p>
 <div *ngIf='foods.length; else noFoods' class="foods">
-    <div *ngFor='let food of foods' class="foods__food">
+    <div *ngFor='let food of foods; let index=index' class="foods__food">
         <p class="food__name">{{food.name | titlecase}}</p>
         <p>{{food.description}}</p>
         <p>{{food.price | currency}}</p>
+        <button class="btn btn-primary" (click)='addItemToCart(index)' *ngIf='!food.inCart; else inCart'>Add to
+            Cart</button>
+        <ng-template #inCart>
+            <div class="foods__qtyCon">
+                <span class="foods__qty">in Cart QTY: {{food.qty}}</span>
+                <div>
+                    <button (click)=addItemToCart(index) class="btn btn-light">+</button>
+                    <button (click)=addItemToCart(index,-1) class="btn btn-light">-</button>
+                </div>
+            </div>
+        </ng-template>
     </div>
 </div>
 

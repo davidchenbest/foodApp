@@ -15,6 +15,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { SettingComponent } from './components/setting/setting.component';
 import { AddressesComponent } from './components/addresses/addresses.component';
 import { AddAddressComponent } from './components/add-address/add-address.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AddAddressComponent } from './components/add-address/add-address.compon
     SettingComponent,
     AddressesComponent,
     AddAddressComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
