@@ -18,7 +18,15 @@ export class UserService {
   }
 
   registerUser(user: User): Observable<User> {
-    return this.httpClient.post<User>('http://localhost:3000/users', user);
+    let newUser = {
+      username: '',
+      password: '',
+      setting: {
+        addresses: [],
+      },
+    };
+    newUser = { ...newUser, ...user };
+    return this.httpClient.post<User>('http://localhost:3000/users', newUser);
   }
 
   updateUser(id: number, user: any): Observable<User> {
