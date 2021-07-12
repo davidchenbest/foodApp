@@ -15,5 +15,5 @@
 
 <div class="total">
     <span>total: {{total | currency}}</span>
-    <button *ngIf='total' class="btn btn-primary total__checkout">Checkout</button>
+    <a *ngIf='total' routerLink='/checkout' class="btn btn-primary total__checkout">Checkout</a>
 </div>

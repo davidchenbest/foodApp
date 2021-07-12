@@ -16,6 +16,7 @@ import { SettingComponent } from './components/setting/setting.component';
 import { AddressesComponent } from './components/addresses/addresses.component';
 import { AddAddressComponent } from './components/add-address/add-address.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CartComponent } from './components/cart/cart.component';
     AddressesComponent,
     AddAddressComponent,
     CartComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
