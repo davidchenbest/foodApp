@@ -7,6 +7,15 @@
       "setting": {
         "addresses": []
       }
+    },
+    {
+      "username": "susan",
+      "password": "123456",
+      "setting": {
+        "addresses": []
+      },
+      "confirmPassword": "123456",
+      "id": 2
     }
   ],
   "foods": [
